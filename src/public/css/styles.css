@@ -1,0 +1,295 @@
+
+* { /*Estandarizar todo para que no hayan bordes ni espacios desconocidos raros.*/
+    box-sizing: border-box; /*Sin bordes ni espacios.*/
+    /*align-items: center; Centrar verticalmente*/
+    /* justify-content: center; Centrar horizontalmente*/
+    text-align: center; /*Centrar horizontalmente texto*/
+    margin: 0;  /*Sin margenes*/
+    padding: 0;     /*Sin padding*/
+
+}
+
+/* Si lo descomento las letras del body se suben al header
+html, body { Establecer el ancho y alto de la pagina
+    height: 100%;
+    width: 100%;
+}*/
+
+body {  /*Establecer el grid de la página, numero filas, columnas, tamaño minimo 50px y maximo 1fr*/
+    display: grid;
+    grid-template-columns:repeat(12, 1fr); /* mínimo 50px por columna, adaptable */
+    grid-template-rows: auto; /* Ajuste automático de filas, si aquí pongo más filas de las que quiero, se agrega una fila vacía en el header que no se puede quitar.*/
+    gap: 7px;
+    height: 100%; /* Alto del body */
+    width: 100%; /* Ancho del body */
+    background-color: #121212; /* Fondo oscuro */
+}
+
+ header {
+    display: grid;
+    grid-column: 1/13;
+    grid-row: 1/3;
+    grid-template-columns: repeat(12, 120px); /* mínimo 50px por columna, adaptable */
+    grid-template-rows: repeat(1, 120px); /* mínimo 50px por fila, adaptable */
+    gap: 7px;
+    height: 100%; /* Alto del body */
+    width: 100%; /* Ancho del body */
+    background-color: rgb(0, 0, 0);
+
+    .logo {
+        grid-column: 2/3; 
+        grid-row: 1/3;
+        width: 120px;
+        height: auto;
+        border-radius: 10px;
+    }
+    
+    .letras {
+        grid-column: 3/6;
+        grid-row: 1/1;
+        width: 380px;
+        height: 120.96px;
+        border-radius: 25px;
+    }
+
+    .container-socialMediaBar {
+        display: grid;
+        grid-column: 11/13;
+        grid-row: 1/2;
+        grid-template-columns: repeat(2, minmax(50px, 1fr)); /* mínimo 50px por columna, adaptable */
+        grid-template-rows: repeat(2, minmax(50px, 1fr)); /* mínimo 50px por fila, adaptable */
+        gap: 7px;
+
+        #twitter {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+        
+        #telegram {
+            grid-column: 2/3;
+            grid-row: 1/2;
+        }
+        
+        #facebook {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            /*height: 100%;  Ocupa todo el Alto de la grilla */
+            /*width: 100%;  Ocupa todo el Ancho de la grilla */
+        }
+        
+        #whatsapp {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+    }
+
+    nav {
+        display: grid;
+        grid-column: 6/11;
+        grid-row: 1/2;
+        grid-template-columns: repeat(12, 120px); /* mínimo 50px por columna, adaptable */
+        grid-template-rows: repeat(2, minmax(50px, 1fr)); /* mínimo 50px por fila, adaptable */
+        gap: 7px;
+        width: 100%; /* Ancho del body */
+        height: 100%; /* Alto del body */
+
+        
+        button {
+            height:100%; /* Alto del body */
+            width: 100%; /* Ancho del body */
+            cursor: pointer;
+            border-radius: 50px;
+        }
+
+        .ButtonNavHome, .ButtonNavAbout, .ButtonNavContact{
+            background-color: #666;
+            color: white
+        }
+
+        .ButtonNavHome:hover, .ButtonNavAbout:hover, .ButtonNavContact:hover {
+            background-color: #444;
+        }
+
+        .NavHome {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            width: 100%; /* Ancho del body */
+            height: 100%; /* Alto del body */
+        }
+
+        .NavAbout {
+            grid-column: 2/3;
+            grid-row: 1/2;
+            height: 100%; /* Alto del body */
+            width: 100%; /* Ancho del body */
+        }
+
+        .NavContact {
+            grid-column: 3/4;
+            grid-row: 1/2;
+            height: 100%; /* Alto del body */
+            width: 100%; /* Ancho del body */
+        }  
+
+        .form-inline {
+            grid-column: 1/5;
+            grid-row: 2/3;
+            display: grid;
+            grid-template-columns: repeat(5, 120.96px);
+            grid-template-rows: auto;
+            height: 100%; /* Alto del body */
+            width: 100%; /* Ancho del body */
+
+            #inputBuscarPeli{
+                grid-column: 1/4;
+                grid-row: 2/3;
+                height: 100%; /* Alto del body */
+                width: 100%; /* Ancho del body */
+            }
+
+            #ButtontBuscarPeli{
+                grid-column: 4/6;
+                grid-row: 2/3;
+                height: 100%; /* Alto del body */
+                width: 100%; /* Ancho del body */
+                background-color: #4aa05e;
+                color: white;
+            }
+
+            #ButtontBuscarPeli:hover {
+                background-color: #28a745;
+                color: white;
+            }
+        }
+    }
+} 
+
+.galeria {
+   grid-column: span 10 / span 10;
+    grid-row: span 9 / span 9;
+    grid-row-start: 4;
+}
+
+.filtrosBusquedas {
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+    grid-column-start: 11;
+    grid-row-start: 4;
+}
+
+/* Estilos para el Contact */
+
+.formulario-container {
+    grid-column: 4 / 10; /* Alinea el formulario en el centro del grid */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #f1f1f1;
+    font-family: Arial, sans-serif;
+}
+
+.formulario-container .form {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+.formulario-container .form h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* Campos del formulario */
+.formulario-container .form .form-group {
+    margin-bottom: 15px;
+}
+
+.formulario-container .form .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #cccccc;
+    font-size: 0.9em;
+}
+
+.formulario-container .form .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+    font-size: 1em;
+}
+
+.formulario-container .form .form-control:focus {
+    border-color: #555;
+    outline: none;
+}
+
+/* Botón de envío */
+.formulario-container .form .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario-container .form .btn-submit:hover {
+    background-color: #666;
+}
+
+/* Estilos para el About  */
+
+/* Estilos para el contenedor de texto */
+/*     .TituloAbout {
+        grid-column: 4 / 10; /* Alinea el formulario en el centro del grid */
+    
+
+.contenedor-texto {
+    grid-column: 4 / 10; /* Alinea el formulario en el centro del grid */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #121212; /* Fondo oscuro */
+    color: #f1f1f1;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.contenedor-texto .text-content {
+    background-color: #1c1c1c;
+    padding: 30px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.contenedor-texto .text-content h2 {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+}
+
+.contenedor-texto .text-content p {
+    margin: 15px 0;
+    line-height: 1.6;
+    color: #cccccc;
+}

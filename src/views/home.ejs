@@ -1,0 +1,21 @@
+<!-- <h1>Hello World</h1> Página que se enviará al front -->
+
+<!-- Esta linea la estoy escribiendo mucho despúes de la linea de arriba, aquí ya cree la ruta absoluta de la carpeta views -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title> <!-- Este es el title de la página recibido desde el backend, es posible usar esta linea de código gracias al ejs-->
+    <%- include ('partials/styles') %>
+ </head>
+ <body>
+  
+    <!-- Si en quiero colocar aquí partials lo puedo hacer con la palabra reservada de ejs - include -->
+   <%-include ('partials/header')%> 
+   <h1> Hola, <%=titleContinue%> </h1> <!-- Aquí tambien estoy recibiendo un mensaje del backend, la sintaxis es <%= %> y adentro el nombre de la variable en la que guarde el mensaje en la página de routes.js-->
+   <p>Home</p>
+   <%-include ('partials/footer')%>
+   
+ </body>
+ </html>
